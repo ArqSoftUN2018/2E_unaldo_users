@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :ldap
-  resources :users, only: [:index, :create, :destroy, :update, :show]
+  get 'users/:email' => 'users#show_by_email'
   mount_devise_token_auth_for 'User', at: 'auth',
     controllers: {
       sessions: 'sessions'
