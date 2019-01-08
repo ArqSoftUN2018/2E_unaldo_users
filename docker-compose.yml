@@ -1,3 +1,4 @@
+#2E-unaldo-users
 version: '2'
 services:
   users-db:
@@ -9,9 +10,9 @@ services:
       MYSQL_USER: arquisoft
       MYSQL_PASSWORD: 123
       MYSQL_DATABASE: auth
-      MYSQL_HOST: auth-db
+      MYSQL_HOST: users-db
   users-ms:
-    image: joahernandezca/2b_authentication
+    image: baangaritar/2e_unaldo_users
     command: bash -c "sleep 40 && rm -f tmp/pids/server.pid && bundle exec rails db:migrate && bundle exec rails db:seed && bundle exec rails s -p 4000 -b '0.0.0.0'"
     ports:
       - 4000:4000
