@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    soap_service namespace: 'urn:WashOutUser'
     before_action :set_user, only: [:show, :update, :destroy]
    
     def index
@@ -6,7 +7,9 @@ class UsersController < ApplicationController
       render json: @users
     end
    
+    # GET /users/1
     def show
+        render json: @user
     end
    
     def create
